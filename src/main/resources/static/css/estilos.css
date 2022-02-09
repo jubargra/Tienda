@@ -1,0 +1,97 @@
+/* 
+    Created on : Feb 7, 2022, 7:42:24 PM
+    Author     : Julian Barquero
+*/
+#encabezado {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 8%;
+    width: 100%;
+    background-color: blue;
+    color: white;    
+}
+
+#encabezado h1{     /*  este se usa para aplicar un estilo a todos los h1 de #encabezado  */
+    display: inline;
+}
+
+#menu{
+    position: absolute;
+    top: 8%;    /*incia en 8% xq ahi termina ''encabezado''*/ 
+    left: 0;
+    height: 4%;
+    width: 100%;
+    background-color: black;
+    color: white;    
+}
+
+#menu a:hover{
+    background-color: green;
+    color: white;
+}
+
+#barraLateral{
+    position: absolute;
+    top: 12%;   /* ''12% xq la idea es que este debajo del 8% mas debajo del 4% del menu */
+    left: 0;
+    height: 82%;
+    width: 20%;
+    background-color: yellowgreen;
+    padding-right: 10px; 
+}
+#contenido {
+    position: absolute;
+    top: 12%;   /*  */
+    left: 20%;
+    height: 82%;
+    width: 80%;
+    background-color: purple;
+    padding-right: 10px; 
+    overflow: auto;   /* para meter un scroller dentro de la seccion */
+}
+
+#piePagina {
+    position: absolute;
+    bottom: 0%;   /* inicia en el cero por ciento del fondo de la pagina */
+    left: 0%;
+    height: 6%;
+    width: 100%;
+    background-color: lightsalmon;
+    text-align: center;    
+}
+   /*este es un selector de clases, se introdujo en el header de los articulos de la tienda*/
+.tituloProducto{
+    font-size: 32px;
+    color: white;
+    margin-top: 20px;
+}
+
+h1,h2 {
+    color: chartreuse;
+    font-size: 35px;
+}
+
+#encabezadoTabla {
+    background-color: cyan;
+    color:black;
+    text-align: center;
+}
+    /* va a aplicar a los tr hijos que esten dentro de tablaResumen a las filas impares */
+#tablaResumen tr:nth-child(odd){
+    background-color: yellow;
+    color: black;
+}
+
+   /* va a aplicar  a los tr hijos que esten dentro de tablaResumen a las filas pares */
+#tablaResumen tr:nth-child(even){
+    background-color: fuchsia;
+    color: black;
+}
+
+/* este ejemplo es para aplicarle un estilo a una fila especifica(2) de la tabla.
+#tablaResumen tr:nth-child(2){
+    color:white;
+    background: coral;
+}
+*/

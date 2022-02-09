@@ -9,21 +9,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta charset="UTF-8">
         <meta name="description" content="Pagina del curso de Desarrollo web y patrones.">
         <meta name="keywords" content="html5, css, web, fidelitas">
-
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <!-- etiqueta para encabezados-->
-        <header>
+        <header id="encabezado">
             <h1>Tienda en linea</h1>
-            <br>
+            <br> 
         </header>
         <!-- etiqueta que indica al navegador que es posiblemente un menu-->
-        <nav>
+        <nav id="menu">
             <a href="Ejemplo 9.html">Atras</a>
             <a href="index.html">Home</a>
             <a href="Ejemplo 3.html">Adelante</a>   
         </nav>
-        <aside>
+        <aside id="barraLateral">
             <h2>Productos mas vendidos</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipiscing elit parturient, sodales cras fermentum nec augue hendrerit nulla cum imperdiet</p>
             <ol>
@@ -32,33 +32,105 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <li> Teclados</li>
             </ol>
         </aside>
-        <section>
+        <section id="contenido">
             <h2>Articulos principales</h2> 
             <article>
-                <header>Asus Vivobook</header>
+                <header class="tituloProducto">Asus Vivobook</header>
             <p>Lorem ipsum dolor sit amet consectetur adipiscing elit parturient, sodales cras fermentum nec augue hendrerit nulla cum imperdiet</p>
             <figure>
-                <img src="Imagenes/vivobook.jpg" alt=""/>
+                <img src="Imagenes/vivobook.jpg" alt="" width="200"/>
                 <figcaption>Imagen de computadora</figcaption>
             </figure>
             </article>
             <article>
-                <header>Alienware ATD 9000</header>
+                <header class="tituloProducto">Alienware ATD 9000</header>
                 <p>Lorem ipsum dolor <cite> it amet consectetur adipiscing </cite>elit parturient, sodales cras fermentum nec augue hendrerit nulla cum imperdiet</p>
                 <figure>
-                    <img src="Imagenes/atd9000.jpg" alt=""/>
+                    <img src="Imagenes/atd9000.jpg" alt="" width="200"/>
                 <figcaption>Imagen de alienware</figcaption>
             </figure>
             </article>
             <article>
-                <header>Impresora 3D portatil</header>
+                <header class="tituloProducto">Impresora 3D portatil</header>
             <p>Lorem ipsum dolor sit amet consectetur adipiscing elit parturient, sodales cras fermentum nec augue hendrerit nulla cum imperdiet</p>
             <figure>
-                <img src="Imagenes/impresora3d.jpg" alt=""/>
+                <img src="Imagenes/impresora3d.jpg" alt="" width="200"/>
                 <figcaption>Imagen de impresora 3d</figcaption>
             </figure>            
             </article>
+            <!-- vamos a introducir una tabla, abrir palette y elegir table -->
+            <article>
+                <header>Resumen de lineas de productos</header>
+                <p>Lineas de productos que maneja la tienda</p>
+                <table border="0">
+                <thead id="encabezadoTabla">
+                    <tr> <!-- tr quiere decir ''como toda la fila'' -->
+                        <th>Codigo</th>  <!-- la celda -->
+                        <th>Nombre de linea</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaResumen">  <!-- aqui van los datos de la tabla.   va a tener ocho filas y dos columnas -->
+                    <tr>
+                        <td>1</td>
+                        <td>Tarjetas madre</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Monitores</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Teclados</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Mouse</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Tarjetas de video</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Headsets</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Laptops</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Cargadores</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <table border="1" style="background-color: whitesmoke">
+                <thead>
+                    <tr>
+                        <!-- A la tabla se le borró un th, entonces tiene unicamente dos columanas en la primera fila-->
+                        <!-- La fila de Detalles va a abarcar dos columnas utilizando el tag colspan="n" para columnas y rowspan="n" para datos-->
+                        <th>Titulo 1</th>
+                        <th colspan="2">Detalles</th>  
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dato 1</td>
+                        <td>Dato 2</td>
+                        <td rowspan="2">Dato 3</td>
+                    </tr>
+                    <tr>
+                        <td>Dato1</td>
+                        <td>Dato2</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            </article>
+            
         </section>
-        <footer>Derechos reservados &COPY  <address>Tibas, Colima</address>  </footer>
+        <footer id="piePagina">Derechos reservados &COPY <address style="display: inline">Tibas, Colima</address>  </footer>
     </body>
 </html>
