@@ -5,24 +5,33 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 -->
 <html>
     <head>
-        <title>Ejemplo 1</title>
+        <title>TechShop - HOME</title>
         <meta charset="UTF-8">
         <meta name="description" content="Pagina del curso de Desarrollo web y patrones.">
         <meta name="keywords" content="html5, css, web, fidelitas">
         <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+        <link href="css/menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <!-- etiqueta para encabezados-->
+        <!-- etiqueta para encabezados
         <header id="encabezado">
             <h1>Tienda en linea</h1>
             <br> 
-        </header>
+        </header> -->
         <!-- etiqueta que indica al navegador que es posiblemente un menu-->
-        <nav id="menu">
-            <a href="Ejemplo 9.html">Atras</a>
-            <a href="index.html">Home</a>
-            <a href="Ejemplo 3.html">Adelante</a>   
-        </nav>
+        <header class="header">
+            <nav class="nav">
+                <a href="index.html" class="logo nav-link">TechShop</a> 
+                <ul class="nav-menu">  <!-- este tag es para hacer una lista desordenada -->
+                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" href="Ejemplo 9.html">&LeftTriangleBar;</a></li>
+                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" href="Ejemplo 3.html">&RightTriangleBar;</a></li>
+                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" href="audios.html">Audios</a></li>
+                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" href="videos.html">Videos</a></li>
+                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" href="iframe.html">iFrame</a></li>
+                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" href="formularios.html">Formularios</a></li>
+                </ul>
+            </nav>
+        </header>
         <aside id="barraLateral">
             <h2>Productos mas vendidos</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipiscing elit parturient, sodales cras fermentum nec augue hendrerit nulla cum imperdiet</p>
@@ -131,6 +140,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </article>
             
         </section>
-        <footer id="piePagina">Derechos reservados &COPY <address style="display: inline">Tibas, Colima</address>  </footer>
+        <footer id="piePagina">Derechos reservados &COPY <address style="display: inline">Tibas, Colima</address></footer>
     </body>
 </html>
