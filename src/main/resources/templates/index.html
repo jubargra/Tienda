@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tech Shop</title>
+        
+        <style>
+            .ejemplo{ color: goldenrod;}            
+        </style>
+        
+    </head>
+    <body>
+        <div>Saludos</div>
+        <p th:text="${Mensaje}"></p> <!-- ojo la nomenclatura para definir el nombre del objeto que recibe "$(nombre)"-->
+                                     <!-- recibe lo que este escrito desde mensaje -->   
+        <p th:text="${Nombre}"></p>
+        
+        <h2>Cliente desde el modelo</h2>
+        
+        <p>Nombre: <span th:text="${cliente.nombre}"></span></p> <!-- se llama al objeto del modelo (cliente) y su atributo (nombre) USAR CORCHETES-->
+        <p>Apellidos: <span th:text="${cliente.apellidos}"></span></p>
+        <p>Correo: <span th:text="${cliente.correo}"></span></p>
+        <p>Telefono: <span th:text="${cliente.telefono}"></span></p>
+        
+        
+        <h2>Lista de clientes desde el modelo</h2>
+        
+        <!-- se inserta tabla a partir de palette, se le borra una seccion -->
+        
+        <div th:if="${clientes != null and !clientes.empty}">  <!-- si el objeto clientes es diferente de nulo Y no es vacio entonces muestra la tabla-->
+        <table border="1">
+            <thead>
+                <tr>   <!-- esta define la primera fila (categorias)-->
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Correo</th>
+                    <th>Telefono</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="item: ${clientes}">  <!-- por cada item dentro de clientes pinta una fila completa. USAR CORCHETES-->                    
+                    <!-- if en linea. Si el item.nombre es igual a Jonathan entonces aplica la clase ejemplo sino aplica clase error-->
+                    <td th:text="${item.nombre}" th:class="${item.nombre == 'Julian'} ? 'ejemplo':'error'"></td>                            
+                    <td th:text="${item.apellidos}"></td>
+                    <td th:text="${item.correo}"></td>
+                    <td th:text="${item.telefono}"></td>
+                </tr>
+            </tbody>
+        </table>
+            </div>
+        
+        <div th:if="${clientes == null or clientes.empty}"> <!-- si el objeto clientes es nulo O el objeto esta vacio entonces muestra esta tabla -->
+            La lista de clientes esta vacia.        
+        </div>
+        
+        <h2>Lista de clientes desde base de datos</h2>
+        
+        <!-- se inserta tabla a partir de palette, se le borra una seccion -->
+        
+        <div th:if="${clientesDB != null and !clientesDB.empty}">  <!-- si el objeto clientes es diferente de nulo Y no es vacio entonces muestra la tabla-->
+        <table border="1">
+            <thead>
+                <tr>   <!-- esta define la primera fila (categorias)-->
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Correo</th>
+                    <th>Telefono</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="item: ${clientesDB}">  <!-- por cada item dentro de clientes pinta una fila completa. USAR CORCHETES-->                    
+                    <!-- if en linea. Si el item.nombre es igual a Jonathan entonces aplica la clase ejemplo sino aplica clase error-->
+                    <td th:text="${item.nombre}" th:class="${item.nombre == 'Julian'} ? 'ejemplo':'error'"></td>                            
+                    <td th:text="${item.apellidos}"></td>
+                    <td th:text="${item.correo}"></td>
+                    <td th:text="${item.telefono}"></td>
+                </tr>
+            </tbody>
+        </table>
+            </div>
+        
+        <div th:if="${clientesDB == null or clientesDB.empty}"> <!-- si el objeto clientes es nulo O el objeto esta vacio entonces muestra esta tabla -->
+            La lista de clientes esta vacia.        
+        </div>
+
+        
+        
+    </body>
+</html>
