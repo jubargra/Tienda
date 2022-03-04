@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!-- el profe que se agrega en cada html pero a mi me da error
+<html xmlns:th="http://www.thymeleaf.org">  -->
+    <head>
+        <title>Techshop</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <header th:fragment="header">
+            <h1 style="color:blue;">Techshop</h1>
+            <a th:href="@{/}">Home</a>            
+        </header>
+    
+        <footer th:fragment="footer">
+            <p>&COPY; Derechos Reservados 2022 </p>            
+        </footer>
+    </body>
+</html>

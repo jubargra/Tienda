@@ -17,14 +17,17 @@ and open the template in the editor.
         
     </head>
     <body>
+        
+        <header th:replace="layout/plantilla :: header"/>    
+        <!-- ojo la nomenclatura para definir el nombre del objeto que recibe "$(nombre)". recibe lo que este escrito desde Mensaje en este caso-->  
+        
         <div>Saludos</div>
-        <p th:text="${Mensaje}"></p> <!-- ojo la nomenclatura para definir el nombre del objeto que recibe "$(nombre)"-->
-                                     <!-- recibe lo que este escrito desde mensaje -->   
-        <p th:text="${Nombre}"></p>
+        <p th:text="${Mensaje}"></p> 
+        <p th:text="${Nombre}"></p>      
         
         <h2>Cliente desde el modelo</h2>
-        
-        <p>Nombre: <span th:text="${cliente.nombre}"></span></p> <!-- se llama al objeto del modelo (cliente) y su atributo (nombre) USAR CORCHETES-->
+        <!-- se llama al objeto del modelo (cliente) y su atributo (nombre). USAR CORCHETES-->
+        <p>Nombre: <span th:text="${cliente.nombre}"></span></p> 
         <p>Apellidos: <span th:text="${cliente.apellidos}"></span></p>
         <p>Correo: <span th:text="${cliente.correo}"></span></p>
         <p>Telefono: <span th:text="${cliente.telefono}"></span></p>
@@ -62,8 +65,14 @@ and open the template in the editor.
         
         <h2>Lista de clientes desde base de datos</h2>
         
-        <!-- se inserta tabla a partir de palette, se le borra una seccion -->
+        <!-- Cambios hechos en clase5 -->
+        <!-- Arroba xq va a ser una accion, no se usa $ xq ese es para objetos -->
+        <!-- el / hace referencia al indexController -->
+        <a th:href="@{/nuevoCliente}">Nuevo Cliente</a>
+        <br>
+        <br>
         
+        <!-- se inserta tabla a partir de palette, se le borra una seccion -->        
         <div th:if="${clientesDB != null and !clientesDB.empty}">  <!-- si el objeto clientes es diferente de nulo Y no es vacio entonces muestra la tabla-->
         <table border="1">
             <thead>
@@ -72,6 +81,8 @@ and open the template in the editor.
                     <th>Apellidos</th>
                     <th>Correo</th>
                     <th>Telefono</th>
+                    <th>Modificar</th>
+                    <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -81,6 +92,8 @@ and open the template in the editor.
                     <td th:text="${item.apellidos}"></td>
                     <td th:text="${item.correo}"></td>
                     <td th:text="${item.telefono}"></td>
+                    <td><a th:href="@{/modificarCliente/} + ${cliente.idcliente}">Modificar</td>
+                    <td><a th:href="@{/eliminarCliente/} + ${cliente.idcliente}">Eliminar</td>
                 </tr>
             </tbody>
         </table>
@@ -89,8 +102,7 @@ and open the template in the editor.
         <div th:if="${clientesDB == null or clientesDB.empty}"> <!-- si el objeto clientes es nulo O el objeto esta vacio entonces muestra esta tabla -->
             La lista de clientes esta vacia.        
         </div>
+        <footer th:replace="layout/plantilla :: footer"/>
 
-        
-        
     </body>
 </html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TechShop</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>Datos del cliente</h2>
+        <br>
+        
+        <a th:href="@{/}">Regresar</a>
+        
+        <!-- accion que va a hacer cuando se presiona boton-->
+        <form th:action="@{/guardarCliente}" 
+              method="post"
+              th:object="${cliente}">
+              <label for="nombre">Nombre</label> <!-- etiqueta field indica lo que se mapea -->
+              <input type="text" name="nombre" th:field="*{nombre}"/>
+              <br>
+              <label for="apellidos">Apellidos</label>
+              <input type="text" name="apellidos" th:field="*{apellidos}"/>
+              <br>
+              <label for="correo">Correo: </label>
+              <input type="email" name="correo" th:field="*{correo}"/>
+              <br>
+              <label for="telefono">Telefono: </label>
+              <input type="tel" name="tel" th:field="*{telefono}"/>
+              <br>
+              
+              <input type="submit" name="Guardar" value="Guardar"/>
+              
+        </form>
+        
+
+    </body>
+</html>
