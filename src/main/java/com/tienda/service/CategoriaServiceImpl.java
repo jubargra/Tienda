@@ -2,11 +2,9 @@
 package com.tienda.service;
 
 //esta clase es para la implementacion del cliente
-// agregar ''implements ClienteService'' y agregar todos los metodos abstractos
-import com.tienda.dao.ClienteDao;
-import com.tienda.dao.CreditoDao;
-import com.tienda.domain.Cliente;
-import com.tienda.domain.Credito;
+// agregar ''implements CategoriaService'' y agregar todos los metodos abstractos
+import com.tienda.dao.CategoriaDao;
+import com.tienda.domain.Categoria;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,48 +12,42 @@ import org.springframework.transaction.annotation.Transactional; //agregar este 
 
 
 @Service
-public class ClienteServiceImpl implements ClienteService{
+public class CategoriaServiceImpl implements CategoriaService{
     
     
     //implementar clienteDao
     @Autowired
-    private ClienteDao clienteDao;
-    
-    @Autowired
-    private CreditoDao creditoDao;
-    
+    private CategoriaDao clienteDao;
 
     
-    //findAll devuelve un objeto iterable. Hay que agregar un cast para convertir el objeto tipo iterable a lista de Cliente
+    //findAll devuelve un objeto iterable. Hay que agregar un cast para convertir el objeto tipo iterable a lista de Categoria
     @Override
     @Transactional (readOnly=true) //esto se agrega para que cuando vaya a base de datos haga solo lectura, nada de escritura
-    public List<Cliente> getClientes() {
-        return (List<Cliente>)clienteDao.findAll();
+    public List<Categoria> getCategorias(boolean activos) {
+        var lista=(List<Categoria>)clienteDao.findAll();
+        if(activos){lista.removeIf(e->e.isActiva());} //devuelve lista de categorias activas si parametro es true, si false devuelve toda la lista
+        return lista;
     }
 
     //Transaccion en BD. Tienen que tener commits. Si hay un error hace rollback (devuelva todo lo que hice, cancelelo)
     
     @Override
     @Transactional //no se le pone nada xq asi permite escribir y leer
-    public void save(Cliente cliente) {
+    public void save(Categoria cliente) {
         //ya recibimos el cliente, se lo pasa al Dao y se encarga de ir a insertar o guardar
-        Credito credito= cliente.getCredito();
-        credito=creditoDao.save(credito);
-        cliente.setCredito(credito);
         clienteDao.save(cliente);
     }
 
     @Override
     @Transactional // eliminar es como escribir 
-    public void delete(Cliente cliente) {
+    public void delete(Categoria cliente) {
         clienteDao.delete(cliente);
     }
 
     @Override
     @Transactional (readOnly=true)
-    public Cliente getCliente(Cliente cliente) {        
+    public Categoria getCategoria(Categoria cliente) {        
          //si la busqueda no encuentra un objeto cliente retorna null
-        return clienteDao.findById(cliente.getIdcliente()).orElse(null);
+        return clienteDao.findById(cliente.getIdCategoria()).orElse(null);
     }
-    
 }
